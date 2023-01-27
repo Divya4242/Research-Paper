@@ -10,9 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -20,25 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import './navbar.css';
 
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    }),
-}));
 const drawerWidth = 240;
-
 
 function Nabvar(props) {
     const [WhetherUserExist, SetWhetherUserExist] = useState(false);
@@ -105,7 +85,7 @@ function Nabvar(props) {
     }
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
+            <Typography variant="h6" sx={{ my: 2 }} style={{color:"white"}}>
                 Research Paper
             </Typography>
             <Divider />
@@ -124,20 +104,19 @@ function Nabvar(props) {
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="fixed" style={{ backgroundColor: "#071e3d" }} >
-                    <Toolbar onClick={() => { handleDrawerToggle() }}>
+                    <Toolbar  position="fixed" style={{ backgroundColor: "#071e3d", marginBottom:"-48px" }}>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
                             edge="start"
                             onClick={() => { navigate(`/`) }}
-                            style={{ cursor: "pointer" }}
+                            style={{ cursor: "pointer", color:"white" }}
                             sx={{ mr: 2, display: { sm: 'none' } }}
                         >
                             <MenuIcon />
                             <Typography variant="h6" sx={{ ml: 1 }}>
                                 {
-                                    college === " " ? <span> Research Paper</span> : <span> {college}</span>
+                                    college === "" ? <span style={{color:"white"}}> Research Paper</span> : <span> {college}</span>
                                 }
                             </Typography>
                         </IconButton>
@@ -145,11 +124,11 @@ function Nabvar(props) {
                             variant="h6"
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, mr: 40 }}
-                            onClick={() => { navigate(`/`) }}
+                            onClick={() => { navigate(`/`); handleDrawerToggle(); }}
                             style={{ cursor: "pointer" }}
                         >
                             {
-                                college === " " ? <span> Research Paper</span> : <span> {college}</span>
+                                college === "" ? <span style={{color:"white"}}> Research Paper</span> : <span> {college}</span>
                             }
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -170,7 +149,6 @@ function Nabvar(props) {
                             }
                         </Box>
                     </Toolbar>
-                </AppBar>
                 <Drawer
                     container={container}
                     variant="temporary"

@@ -103,7 +103,7 @@ function Registration() {
                 const data = await getDocs(q);
                 if (data.docs.length === 0) {
                     // console.log("NO access");
-                    throw "Error: Invalid Key!"
+                    throw "Error: Invalid Key!";
                 }
                 else {
                     // console.log(data);
