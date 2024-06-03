@@ -3,7 +3,6 @@
 This project is intended to add research paper like Journal article, book chapter, publications for any institute that can be visible to anyone on internet.
 Collection and maintenance of research activities conducted at Universities is now very difficult to maintain. This type of data has a number of verticals such as publications, books/book chapters, masterclasses etc. The maintenance and fetching of the data from individual faculty is a very tedious job, so to solve this hurdle this website will help you under different heads and helping.
 
-https://researchpaper.azurewebsites.net
 
 ## Who can use
 
